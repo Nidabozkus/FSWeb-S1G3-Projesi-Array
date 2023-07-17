@@ -155,10 +155,16 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
   Bu sorunu çözmek için GELİŞMİŞ DİZİ YÖNTEMLERİNİ (yani .filter) KULLANMAYIN.
 */
 
-function ismeGoreFiltrele(orijinalTatlarArray, Çikolata) {
-  orijinalTatlar.includes("Çikolata");
+function ismeGoreFiltrele(tatlarArray, filtre = " ") {
+  const a = [];
+  for (let i = 0; i < tatlarArray.length; i++) {
+    if (tatlarArray[i].includes(filtre)) {
+      a.push(tatlarArray[i]);
+    }
+  }
+  return a;
 }
-
+console.log("göre7:", ismeGoreFiltrele(orijinalTatlar, "Çikolata"));
 /* ALIŞTIRMA */
 
 /* ALIŞTIRMA 1: Bir dizideki ortalama kelime sayısını döndüren bir fonksiyon yazın. Bu işlevi orijinalTatlar dizisinde test etmelisiniz, ancak bunu herhangi bir dizi için de kullanabilmelisiniz.
