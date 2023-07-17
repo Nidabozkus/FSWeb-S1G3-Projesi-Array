@@ -39,11 +39,11 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
    2. Alınan dizinin bir kopyasını döndür
 */
 
-function kopyala() {
-  const array2 = [...orijinalTatlar];
+function kopyala(tatlarArray) {
+  const array2 = [...tatlarArray];
   return array2;
 }
-console.log("görev1: ", kopyala());
+console.log("görev1: ", kopyala(orijinalTatlar));
 /* Görev 2:
 Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları kabul etmelidir:
    1. parametre olarak bir dizi
