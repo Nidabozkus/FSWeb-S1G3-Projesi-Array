@@ -39,11 +39,11 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
    2. Alınan dizinin bir kopyasını döndür
 */
 
-function kopyala(kopyaArray) {
-  const kopya = orijinalTatlar;
-  return kopya;
+function kopyala() {
+  const array2 = [...orijinalTatlar];
+  return array2;
 }
-kopyala();
+console.log("görev1: ", kopyala());
 /* Görev 2:
 Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları kabul etmelidir:
    1. parametre olarak bir dizi
@@ -55,13 +55,13 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 */
 
 function dizi25Cesitmi(cesitArray) {
-  if ((orijinalTatlar.length = 25)) {
+  if ((cesitArray.length = 25)) {
     return true;
   } else {
     return false;
   }
 }
-
+console.log("görev2: ", dizi25Cesitmi(orijinalTatlar));
 /* Görev 3:
 Pastane sahibi size yeni bir lezzet fikriyle geldi: Kakule! Bunun da çok tutacağından çok emin. Bu lezzeti eklemek için diziyi değiştirmeniz gerekir.
 
@@ -74,11 +74,11 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
   Örneğin: cesitEkle(orijinalTatlar, "Kakule") işlevi doğru çalıştığında ["Kakule", "Muz",..."Vanilya"] şeklinde dönmelidir
 */
 
-function cesitEkle(tatlarArray, Kakule) {
-  orijinalTatlar.unshift(Kakule);
-  return orijinalTatlar;
+function cesitEkle(tatlarArray, yeniTat = " ") {
+  tatlarArray.unshift(yeniTat);
+  return tatlarArray;
 }
-
+console.log("görev3: ", cesitEkle(orijinalTatlar, "Kakule"));
 /* Cörev 4:
 
 Hoooppppalaa! orijinalTatlar dizisinde artık 26 aroma var! Göreviniz, dizinin sonundan bir öğeyi kaldırmaktır.
@@ -91,11 +91,11 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
    Örneğin: sonCesitiKaldir(orijinalTatlar) çalıştırıldığında ["Kakule", "Muz",..."Çilek"] döndürülür.
 */
 
-function sonCesitiKaldir(sonCesitArray) {
-  orijinalTatlar.pop();
-  return orijinalTatlar;
+function sonCesitiKaldir(tatlarArray) {
+  tatlarArray.pop();
+  return tatlarArray;
 }
-
+console.log("görev4: ", sonCesitiKaldir(orijinalTatlar));
 /* Görev 5:
 Dizideki belirli bir indeksteki çeşniyi döndüren bir işlev yazın.
 
@@ -107,10 +107,10 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(tatlarArray, n = 3) {
-  return orijinalTatlar[3];
+function indekstekiCesitiGetir(tatlarArray, n) {
+  return tatlarArray[n];
 }
-
+console.log("görev5: ", indekstekiCesitiGetir(orijinalTatlar, 2));
 /* Görev 6:
 
 Firma, ürün yelpazesine daha fazla lezzet eklemek istediğinden, sadece ilk veya son aromayı keyfi olarak çıkarmak yerine, aroma adına göre aromaları kaldırmaları gerektiğini fark ederler. Göreviniz, verilen bir dizinde, ada göre bu tadı diziden çıkarmak.
@@ -126,11 +126,15 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(orijinalTatlar, Badem) {
-  orijinalTatlar.splice(13, 1);
-  return orijinalTatlar;
+function ismeGoreCesitCikar(tatlarArray, lezzetAdi) {
+  for (let i = 0; i < tatlarArray.length; i++) {
+    if (lezzetAdi === tatlarArray[i]) {
+      tatlarArray.splice(i, 1);
+    }
+  }
+  return tatlarArray;
 }
-
+console.log("görev6: ", ismeGoreCesitCikar(orijinalTatlar, "Badem"));
 /* Görev 7:
 
 14 Şubat Sevgililer Günü'nde Firma, tüm çikolata lezzetlerini öne çıkaran bir promosyon malzemeleri oluşturmak istiyor.
