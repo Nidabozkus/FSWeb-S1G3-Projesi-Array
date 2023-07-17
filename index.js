@@ -189,7 +189,7 @@ function ortalamaKelimeSayisi(tatlarArray) {
   return kelimetoplam / tatlarArray.length;
 }
 
-console.log(ortalamaKelimeSayisi(orijinalTatlar));
+console.log("alıştırma1: ", ortalamaKelimeSayisi(orijinalTatlar));
 
 /* ALIŞTIRMA 2:
 Firma mevcut tatların yanında artık mevsimlik lezzetler ve hatta bölgesel lezzetler de sunmaktadır. Toplam 25 lezzet aromasını
@@ -202,48 +202,68 @@ Aşağıdakileri yapmak için rastgeleTatlar işlevini ve yeni dizileri kullanı
 
   Örneğin: rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar) çalıştırıldığında ["Kestane", "Ballı Badem,"..."Hindistan Cevizi", "Kuru üzüm"].
 */
+const yeniTatlar = [
+  "Badem",
+  "Ballı Badem",
+  "Fıstık Ezmesi",
+  "Profiterol",
+  "Madlen Çikolata",
+];
+const mevsimlikTatlar = [
+  "Pekan",
+  "Kaju",
+  "Çikolatalı Mousse",
+  "Fransız Vanilyası",
+  "Yumurta",
+  "Alman çikolatası",
+  "Kek üzerine krema",
+  "Hindistan Cevizi",
+  "Kaymaklı Biskuvi",
+  "Beyaz Çikolata",
+  "Mango",
+];
+const bolgeselTatlar = [
+  "Kaymak",
+  "Karpuz",
+  "Karadut",
+  "Turunç",
+  "Portakal",
+  "Yogurt",
+  "Krem Peynir",
+  "Kakao",
+  "Karamel macchiato",
+  "Kuru üzüm",
+  "Peynir",
+  "Karamel",
+];
+function rastgeleTatlar(
+  tatlarArray1,
+  tatlarArray2,
+  tatlarArray3,
+  tatlarArray4
+) {
+  const rastgeleTat = [];
+  const butunTatlar = [
+    ...tatlarArray1,
+    ...tatlarArray2,
+    ...tatlarArray3,
+    ...tatlarArray4,
+  ]; //burada bütün arrayleri tek bir array haline getirdik
+  for (let i = 0; i < 25; i++) {
+    //i uzunluğunu 25 aldık çünkü 25 adet eleman içeren bir dizi oluşturmaya çalışıyoruz. i değeri 25'e gedliğinde for'u döndürmeyi bitirecek yani dizi tamamlanmış olacak.
+    const rastgele = Math.floor(Math.random() * butunTatlar.length); //butunTatlar array'inin uzunluğu kadar random sayı yani index değeri üretmesi için bir değer tanımladık.
+    rastgeleTat.push(butunTatlar[rastgele]); //burada ise ürettiğimiz random i değerini alıp butuntatlar dizinin o i değerini rastgeleTat array'ine push ile eklemiş olduk.
+  }
 
-function rastgeleTatlar(/*kod buraya*/) {
-  /*kod buraya*/
+  return rastgeleTat;
 }
 
+console.log(
+  "alıştırma2: ",
+  rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar)
+);
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
-// const yeniTatlar = [
-//   "Badem",
-//   "Ballı Badem",
-//   "Fıstık Ezmesi",
-//   "Profiterol",
-//   "Madlen Çikolata"
-// ]
-
-// const mevsimlikTatlar = [
-// "Pekan",
-// "Kaju",
-// "Çikolatalı Mousse",
-// "Fransız Vanilyası",
-// "Yumurta",
-// "Alman çikolatası",
-// "Kek üzerine krema",
-// "Hindistan Cevizi",
-// "Kaymaklı Biskuvi",
-// "Beyaz Çikolata",
-// "Mango"
-// ]
-
-// const bolgeselTatlar = [
-// "Kaymak",
-// "Karpuz",
-// "Karadut",
-// "Turunç",
-// "Portakal",
-// "Yogurt",
-// "Krem Peynir",
-// "Kakao",
-// "Karamel macchiato",
-// "Kuru üzüm",
-// "Peynir",
-// "Karamel"
-// ]
+//
 
 /* Lütfen bu satırın altındaki hiçbir şeyi değiştirmeyin */
 function sa() {
